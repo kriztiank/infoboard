@@ -5,12 +5,12 @@ const app = express();
 
 app.set('view engine', 'ejs');
 // app.use(expressLayouts);
-app.use(express.static('./'));
+app.use(express.static('./static'));
 
 app.get('/', (req, res) => {
   res.render('index', {
     title: 'Sidetitel',
-    content: 'Side Indholdet',
+    content: 'Side Indhold',
   });
 });
 

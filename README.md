@@ -14,7 +14,7 @@ Node.js startup
 npm init
 ```
 
-5. Lav ny fil: app.js
+5. Lav ny fil: index.js
 
 6. Installer express i terminal:
 
@@ -50,7 +50,6 @@ const expressLayouts = require("express-ejs-layouts");
 11. Skriv følgende for at klargøre EJS engine og express-ejs-layouts:
 ```javascript
 app.set("view engine", "ejs");
-app.set("views", "./");
 app.use(expressLayouts);
 ```
 
@@ -62,7 +61,7 @@ app.use(express.static("./static"));
 13. Opsæt route til forside:
 ```javascript
 app.get("/", (req, res) => {
-  res.render("pages/index", {
+  res.render("index", {
     title: "Sidetitel",
     content: "Side Indhold"
   });
@@ -77,7 +76,7 @@ app.listen(3000, () => {
 });
 ```
 
-15. Opret fil til views: views/pages/app.ejs og indtast følgende:
+15. Opret fil til views: views/index.ejs og indtast følgende:
 
 ```html
 <html>
@@ -93,5 +92,5 @@ app.listen(3000, () => {
 15. Kør applikationen fra din terminal:
 
 ```
-nodemon app.js
+nodemon index.js
 ```
