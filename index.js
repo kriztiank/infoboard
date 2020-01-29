@@ -8,7 +8,7 @@ app.set('view engine', 'ejs');
 app.use(express.static('./'));
 
 app.get('/', (req, res) => {
-  res.render('pages/index', {
+  res.render('index', {
     title: 'Sidetitel',
     content: 'Side Indholdet',
   });
