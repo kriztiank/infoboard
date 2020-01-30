@@ -7,17 +7,28 @@ const app = express();
 app.set('view engine', 'ejs');
 // app.use(expressLayouts);
 app.use(express.static('./static'));
+let activity;
+let subject;
+let news;
+let medie;
+function getData(data) {
+  news = data.news;
+  activity = data.activity;
+  subject = data.subject;
+  medie = data.medie;
+  // console.log(activity);
+}
 
 fetch('https://infoboard.mediehuset.net/api/')
   .then(response => response.json())
   .then(data => {
-    console.log(data);
+    getData(data);
   });
 
 app.get('/', (req, res) => {
   res.render('index', {
-    title: 'Sidetitel',
-    content: 'Side Indholdet',
+    title: 'Infoboard',
+    content: news,
   });
 });
 

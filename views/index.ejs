@@ -3,6 +3,11 @@
     <title><%= title %></title>
   </head>
   <body>
-    <%= content %>
+    <% content.forEach(function(con) { %>
+    <li><%= con.iNewsID %></li>
+    <li><%= con.iActivityID %></li>
+    <li><%= con.iSubjectID %></li>
+    <li><%= con.iMedieID %></li>
+    <% }); %>
   </body>
 </html>
