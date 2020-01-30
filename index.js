@@ -8,7 +8,7 @@ app.set('view engine', 'ejs');
 // app.use(expressLayouts);
 app.use(express.static('./static'));
 
-fetch('https://api.mediehuset.net/songbook/')
+fetch('https://infoboard.mediehuset.net/api/')
   .then(response => response.json())
   .then(data => {
     console.log(data);
