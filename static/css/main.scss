@@ -1,0 +1,13 @@
+ul {
+    display: grid;
+    grid-template-columns:  1fr 1fr 1fr 1fr 1fr;
+    gap: 8px;
+}
+
+.grid-item{
+    display: grid;
+    background-color: teal;
+    font-size: 1.1vw;
+    text-align: center;
+    border: solid 2px black;
+}
