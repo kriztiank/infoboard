@@ -4,15 +4,19 @@ var functionCollection = {
     content: [],
     activity: [],
     news: [],
-    medie: [],
+    media: [],
+    classRooms: [],
+    classes: [],
 
     // Function to save data to different arrays and then begin update
     saveData: function (data) {
         this.subject = data.subject;
         this.activity = data.activity;
         this.news = data.news;
-        this.medie = data.medie;
-        this.update();
+        this.media = data.media;
+        this.getAllClassRooms(this.activity);
+        this.getAllClasses(this.activity);
+       // console.log(this.classes);
     },
 
     // Create arrays
@@ -24,10 +28,31 @@ var functionCollection = {
     act_arr_6: [], // 14.00 - 15.15
     act_arr_7: [], // 15.15 - 16.00
 
+
+    getAllClasses: function(el){
+        this.classes.length =0;
+        for (var x = 0; x < el.length; x++){
+            if (!this.classes.includes(el[x].class)){
+                str = el[x].class;
+                substr = str.substring(0, 4);
+                console.log(substr)
+                this.classes.push(str);
+            }
+        }
+    },
+
+
+    getAllClassRooms: function(el){
+        for (var x = 0; x < el.length; x++){
+            if (!this.classRooms.includes(el[x].classroom)){
+            this.classRooms.push(el[x].classroom);
+            }
+        }
+    },
+
     // Function to sort data by time and date
     sort: function (el) {
         for (var x = 0; x < el.length; x++) {
-            //console.log(getItemDate(act.daTime) + " " + getTodaysDate())
 
             if (this.getItemDate(el[x].stamp) == this.getTodaysDate()) {
 
@@ -72,9 +97,9 @@ var functionCollection = {
 
     // Function to determine what content to show based on currentime
     determineContent: function () {
-        var hour = this.getCurrentHour();
-        var min = this.getMinutes();
-        console.log("Server updated at hour: " + hour + "Min: " + min );
+        let hour = this.getCurrentHour();
+        let min = this.getMinutes();
+        //console.log("Server updated at hour: " + hour + "Min: " + min );
         if (hour == 8 || hour == 9 && min < 20){
             this.content = this.act_arr_1;
         }
@@ -95,6 +120,9 @@ var functionCollection = {
         }
         if (hour == 15 && min > 15){
                 this.content = this.act_arr_7;
+        }
+        if (hour < 8 || hour >= 16){
+            this.content = [];
         }
     },
 
@@ -135,12 +163,7 @@ var functionCollection = {
     // Function that returns the current date in format d/m/y
     getTodaysDate: function () {
         let date = new Date;
-        let shift = 0;
-        if (this.getCurrentHour() > 16){
-            shift = 1;
-            console.log("Day shifted");
-        }
-        let day = date.getDate() + shift;
+        let day = date.getDate();
         let month = date.getMonth() + 1;
         let year = date.getFullYear();
         let formatted = day + "/" + month + "/" + year;
@@ -159,12 +182,10 @@ var functionCollection = {
 
     // Update loop that resets arrays, sorts the data and determines what to show.
     update: function () {
-        setInterval(() => {
             this.resetArrays();
             this.sort(this.activity);
             this.determineContent();
-        }, 500);
-    }
+    },
 
 }
 

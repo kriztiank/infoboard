@@ -1,13 +1,129 @@
-ul {
+// Colors
+
+//Bright red
+$red-1-light: #dd5050;
+$red-1-dark: #d64643;
+
+//Darker red
+$red-2-light: #ca4a50;
+$red-2-dark: #b2444c;
+
+//Purple light
+$purple-1-light: #a43380;
+$purple-1-dark: #90368b;
+
+//Purple dark
+$purple-2-light:#923076;
+$purple-2-dark:#852c70;
+
+//Green light
+$green-2-light:#94b144;
+$green-2-dark: #88a63e;
+
+//Green dark
+$green-1-light: #8b973c;
+$green-1-dark: #808635;
+
+
+//Blue light
+$blue-2-light:#567ebe;
+$blue-2-dark: #4d72a6;
+
+//Blue dark
+$blue-1-light: #5479b1;
+$blue-1-dark: #4b6d9e;
+
+$default-room: rgb(80, 80, 80);
+
+
+
+
+body{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    background-color: #333;
+}
+
+.main-container{
+    margin:auto auto;
     display: grid;
-    grid-template-columns:  1fr 1fr 1fr 1fr 1fr;
-    gap: 8px;
+    width: 80%;
+    height: 80%;
+    grid-template-columns: 1.5fr 1.5fr 1.25fr;
+    grid-template-areas:
+    "map map video"
+    "map map video"
+    "map map news"
+    "map map news"
+    "map map news";
+    background-color: #fff;
+}
+
+.headline{
+    color:white;
+}
+
+.map{
+    display: grid;
+    grid-area: map;
+    background-color:rgb(251,251,251);
+    align-items:center;
+}
+
+.video{
+    display: grid;
+    grid-area: video;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+}
+
+
+.news{
+    display: grid;
+    padding: 2%;
+    grid-area: news;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+}
+
+svg{
+    width:100%
+}
+
+#player{
+    border: none;
+    border-width: 0;
+    display:block;
+    width: 22vw;
+    height: 25vh;
+    margin: 5% auto 5% auto;
+}
+
+
+.video-item{
+    width: 100%;
+    height: 100%;
+}
+.news-item{
+    font-size: 1.1vw;
+    text-align: center;
+}
+
+#class-container{
+    background-color: #fff;
+    width: 80%;
+    margin: auto auto;
 }
 
 .grid-item{
-    display: grid;
-    background-color: teal;
+    display: inline-block;
+    width: 10vw;
     font-size: 1.1vw;
     text-align: center;
-    border: solid 2px black;
+    background-color: rgb(30, 30, 30);
+    color:white;
+    margin: 4px;
 }
