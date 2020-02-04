@@ -18,9 +18,7 @@ socket.on('update', function(content, news) {
     
     // Activity
     classContainer.innerHTML = "";
-    //console.log(topfloor);
     resetColors(rooms);
-    //resetColors(bottomfloor);
     content.forEach(function(con) {
 
         let class_room = con.classroom.toLowerCase();
