@@ -14,7 +14,7 @@ body {
   height: 80%;
   -ms-grid-columns: 1.5fr 1.5fr 1.25fr;
       grid-template-columns: 1.5fr 1.5fr 1.25fr;
-      grid-template-areas: "map map video" "map map video" "map map news" "map map news" "map map news";
+      grid-template-areas: "map map video" "map map news";
   background-color: #fff;
 }
 
@@ -23,10 +23,8 @@ body {
 }
 
 .map {
-  display: -ms-grid;
-  display: grid;
   -ms-grid-row: 1;
-  -ms-grid-row-span: 5;
+  -ms-grid-row-span: 2;
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
   grid-area: map;
@@ -40,7 +38,6 @@ body {
   display: -ms-grid;
   display: grid;
   -ms-grid-row: 1;
-  -ms-grid-row-span: 2;
   -ms-grid-column: 3;
   grid-area: video;
   -webkit-box-align: center;
@@ -56,8 +53,7 @@ body {
   display: -ms-grid;
   display: grid;
   padding: 2%;
-  -ms-grid-row: 3;
-  -ms-grid-row-span: 3;
+  -ms-grid-row: 2;
   -ms-grid-column: 3;
   grid-area: news;
   -webkit-box-align: center;
@@ -89,7 +85,7 @@ svg {
 
 .news-item {
   font-size: 1.1vw;
-  text-align: center;
+  text-align: start center;
 }
 
 #class-container {
@@ -101,6 +97,11 @@ svg {
 .grid-item {
   display: inline-block;
   width: 10vw;
+  height: 25vh;
+  -webkit-box-shadow: 4px 2px 6px 0 rgba(10, 10, 10, 0.5);
+          box-shadow: 4px 2px 6px 0 rgba(10, 10, 10, 0.5);
+  border-radius: 10px;
+  border: solid 0 black;
   font-size: 1.1vw;
   text-align: center;
   background-color: #1e1e1e;

@@ -16,7 +16,6 @@ var functionCollection = {
         this.media = data.media;
         this.getAllClassRooms(this.activity);
         this.getAllClasses(this.activity);
-       // console.log(this.classes);
     },
 
     // Create arrays
@@ -27,6 +26,7 @@ var functionCollection = {
     act_arr_5: [], // 13.00 - 14.00
     act_arr_6: [], // 14.00 - 15.15
     act_arr_7: [], // 15.15 - 16.00
+    act_next: [],
 
 
     getAllClasses: function(el){
@@ -54,54 +54,76 @@ var functionCollection = {
     sort: function (el) {
         for (var x = 0; x < el.length; x++) {
 
-            if (this.getItemDate(el[x].stamp) == this.getTodaysDate()) {
+            if (this.getItemDate(el[x].stamp) == this.getTodaysDate(1)) {
+                if (this.getHours(el[x].stamp) == 8){
+                    if (!this.act_next.includes(el[x])){
+                    this.act_next.push(el[x]);
+                }
+            }
+        }
+
+            if (this.getItemDate(el[x].stamp) == this.getTodaysDate(0)) {
 
                 // kl 8
                 if (this.getHours(el[x].stamp) == 8) {
-                    this.act_arr_1.push(el[x]);
+                    if (!this.act_arr_1.includes(el[x])){
+                        this.act_arr_1.push(el[x]);
+                    }
                 }
-                
                 // kl 9
                 if (this.getHours(el[x].stamp) == 9) {
+                    if (!this.act_arr_2.includes(el[x])){
                     this.act_arr_2.push(el[x]);
+                    }
                 }
-
                 // kl 10
                 if (this.getHours(el[x].stamp) == 10) {
+                    if (!this.act_arr_3.includes(el[x])){
                     this.act_arr_3.push(el[x]);
+                    }
                 }
-
                 // kl 11
                 if (this.getHours(el[x].stamp) == 11) {
+                    if (!this.act_arr_3.includes(el[x])){
                     this.act_arr_3.push(el[x]);
+                    }
                 }
                 // kl 12
                 if (this.getHours(el[x].stamp) == 12) {
+                    if (!this.act_arr_4.includes(el[x])){
                     this.act_arr_4.push(el[x]);
+                    }
                 }
                 // kl 13
                 if (this.getHours(el[x].stamp) == 13) {
+                    if (!this.act_arr_5.includes(el[x])){
                     this.act_arr_5.push(el[x]);
+                    }
                 }
                 // kl 14
                 if (this.getHours(el[x].stamp) == 14) {
+                    if (!this.act_arr_6.includes(el[x])){
                     this.act_arr_6.push(el[x]);
+                    }
                 }
                 // kl 15
                 if (this.getHours(el[x].stamp) == 15){
+                    if (!this.act_arr_7.includes(el[x])){
                     this.act_arr_7.push(el[x]);
-                }
-            }
-        };
-    },
+                    }
+                }      
+        }
+    }
+},
 
     // Function to determine what content to show based on currentime
     determineContent: function () {
         let hour = this.getCurrentHour();
         let min = this.getMinutes();
+
         //console.log("Server updated at hour: " + hour + "Min: " + min );
         if (hour == 8 || hour == 9 && min < 20){
-            this.content = this.act_arr_1;
+                this.content = this.act_arr_1;
         }
         if (hour == 9 && min >=20 || hour == 10 && min < 30){
                 this.content = this.act_arr_2;
@@ -121,8 +143,8 @@ var functionCollection = {
         if (hour == 15 && min > 15){
                 this.content = this.act_arr_7;
         }
-        if (hour < 8 || hour >= 16){
-            this.content = [];
+        if (hour >= 16){
+                this.content = this.act_next;
         }
     },
 
@@ -161,9 +183,9 @@ var functionCollection = {
     },
 
     // Function that returns the current date in format d/m/y
-    getTodaysDate: function () {
+    getTodaysDate: function (add) {
         let date = new Date;
-        let day = date.getDate();
+        let day = date.getDate() + add;
         let month = date.getMonth() + 1;
         let year = date.getFullYear();
         let formatted = day + "/" + month + "/" + year;

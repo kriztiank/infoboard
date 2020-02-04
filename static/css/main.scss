@@ -53,9 +53,6 @@ body{
     grid-template-columns: 1.5fr 1.5fr 1.25fr;
     grid-template-areas:
     "map map video"
-    "map map video"
-    "map map news"
-    "map map news"
     "map map news";
     background-color: #fff;
 }
@@ -65,7 +62,7 @@ body{
 }
 
 .map{
-    display: grid;
+    //display: grid;
     grid-area: map;
     background-color:rgb(251,251,251);
     align-items:center;
@@ -109,7 +106,7 @@ svg{
 }
 .news-item{
     font-size: 1.1vw;
-    text-align: center;
+    text-align: start center;
 }
 
 #class-container{
@@ -121,6 +118,10 @@ svg{
 .grid-item{
     display: inline-block;
     width: 10vw;
+    height: 25vh;
+    box-shadow: 4px 2px 6px 0 rgba(10,10,10,0.5);
+    border-radius: 10px;
+    border: solid 0 black;
     font-size: 1.1vw;
     text-align: center;
     background-color: rgb(30, 30, 30);

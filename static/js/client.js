@@ -1,6 +1,6 @@
 // Initialize socket io and start connection to server
 let socket = io('http://localhost:3000');
-let classContainer = document.getElementById('class-container');
+let classContainer = document.getElementById('map');
 let rooms = document.getElementsByClassName('st1');
 
 // Initialize all needed variables
@@ -18,16 +18,17 @@ socket.on('update', function(content, news) {
     
     // Activity
     classContainer.innerHTML = "";
-    resetColors(rooms);
+    //resetColors(rooms);
     content.forEach(function(con) {
 
-        let class_room = con.classroom.toLowerCase();
+  /*       let class_room = con.classroom.toLowerCase();
         let drawnroom = document.getElementById(`${class_room}`);
         drawnroom.style.fill = getColor(con.class);
-
+ */
 
         let el = document.createElement('div');
         el.classList.add('grid-item');
+        el.style.backgroundColor = getColor(con.class);
         el.innerHTML = `${con.id} <br> ${con.name} <br>${con.classroom} <br> ${con.class}<br> ${convertTime(con.stamp)}`
         classContainer.append(el);
     }); 
@@ -134,7 +135,6 @@ function convertTime(time, minus = 0){
 
 var player;
 
-// Check if videArray is not empty
 setTimeout(() => {
     // create youtube player
         player = new YT.Player('player', {
