@@ -18,7 +18,6 @@ socket.on('update', function(content, news) {
     
     // Activity
     classContainer.innerHTML = "";
-    //resetColors(rooms);
     content.forEach(function(con) {
 
   /*       let class_room = con.classroom.toLowerCase();
@@ -27,9 +26,13 @@ socket.on('update', function(content, news) {
  */
 
         let el = document.createElement('div');
+        let elH = document.createElement('div');
         el.classList.add('grid-item');
-        el.style.backgroundColor = getColor(con.class);
-        el.innerHTML = `${con.id} <br> ${con.name} <br>${con.classroom} <br> ${con.class}<br> ${convertTime(con.stamp)}`
+        elH.classList.add('top-grid-item');
+        elH.style.backgroundColor = getColor(con.class);
+
+        el.append(elH);
+        el.innerHTML += `${con.id} <br> ${con.name} <br>${con.classroom} <br> ${con.class}<br> ${convertTime(con.stamp)}`
         classContainer.append(el);
     }); 
 
@@ -75,46 +78,40 @@ socket.on('videoupdate', function(media) {
     })
 })
 
-
-
 function resetColors(el){
-
         for(var x = 0; x < el.length; x++) {
             el[x].style.fill = '#ffffff'; 
         }; 
 }
 
-
 function getColor(c){
 
     let str = c;
-    let substr = str.substring(0, 4);
-
-    switch(substr){
-
-        case 'agr0': // Ofremstilling ??
-            return '#94b144';
-        
-        case 'dgm0': // Digital media
-            return '#dd5050'
-
-        case 'ggr0': // Grafisk tekniker
-            return '#ca4a50'
     
-        case 'gmg0': // Medie grafiker
-            return '#90368b'
 
-        case 'gwe0': // Web grundforløb
-            return '#4b6d9e'
-            
-        case 'h1we': // Web hovedforløb
-            return '#567ebe'
+    if (str.toLowerCase().includes('dm')){
+        color =  '#dd5050';
+        return color;
+    }
 
-        case 'h0gr': // Prod storf prin ??
-            return '#94b144'
+    if (str.toLowerCase().includes('gr')){
+        color =  '#ca4a50';
+        return color;
+    }
 
-        case 'h1mg': // Engelsk
-            return '#94b144'
+    if (str.toLowerCase().includes('mg')){
+        color =  '#4b6d9e';
+        return color;
+    }
+
+    if (str.toLowerCase().includes('we')){
+        color =  '#94b144';
+        return color;
+    }
+
+    else{
+        color = '#90368b';
+        return color;
     }
 }
 

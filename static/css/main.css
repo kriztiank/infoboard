@@ -94,6 +94,15 @@ svg {
   margin: auto auto;
 }
 
+.top-grid-item {
+  width: 10vw;
+  height: 4vh;
+  position: relative;
+  top: 0;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
 .grid-item {
   display: inline-block;
   width: 10vw;
@@ -102,10 +111,10 @@ svg {
           box-shadow: 4px 2px 6px 0 rgba(10, 10, 10, 0.5);
   border-radius: 10px;
   border: solid 0 black;
+  background-color: black;
   font-size: 1.1vw;
   text-align: center;
-  background-color: #1e1e1e;
   color: white;
-  margin: 4px;
+  margin: 1%;
 }
 /*# sourceMappingURL=main.css.map */
