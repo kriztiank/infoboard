@@ -14,7 +14,7 @@ body {
   height: 80%;
   -ms-grid-columns: 1.5fr 1.5fr 1.25fr;
       grid-template-columns: 1.5fr 1.5fr 1.25fr;
-      grid-template-areas: "map map video" "map map news";
+      grid-template-areas: "map map video" "map map news";
   background-color: #fff;
 }
 
@@ -116,5 +116,22 @@ svg {
   text-align: center;
   color: white;
   margin: 1%;
+}
+
+#infograph {
+  height: 500px;
+  width: 200px;
+  background-color: #ff00dd;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 3fr;
+      grid-template-columns: 1fr 3fr;
+  -ms-grid-rows: 1fr 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+#infograph div {
+  background-color: green;
 }
 /*# sourceMappingURL=main.css.map */
