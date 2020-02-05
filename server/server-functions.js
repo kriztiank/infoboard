@@ -55,40 +55,18 @@ var functionCollection = {
         }
     },
 
-    fillRest: function(el){
-    switch(this.current){
-        case "arr1":
-            this.fillArr = this.act_arr_2;
-            break;
+    fillRest: function(el, fill){
 
-        case "arr2":
-            this.fillArr = this.act_arr_3;
-            break;
+    a = el.length;
+    t = 9;
+    target = t-a;
+    console.log(target);
+    this.fillArr = fill;
 
-        case "arr3":
-            this.fillArr = this.act_arr_4;
-            break;
-
-        case "arr4":
-            this.fillArr = this.act_arr_5;
-            break;
-
-        case "arr5":
-            this.fillArr = this.act_arr_6;
-            break;
-
-        case "arr6":
-            this.fillArr = this.act_arr_7;
-            break;
-
-        case "arr7":
-            this.fillArr = this.act_next;
-            break;
-    }
-
-
-    for (var x = 0; (el.length + this.fillArr.length) <= 16; x++){
+    for (var x = 0; x <= target; x++){
+        if (x < this.fillArr.length){
         el.push(this.fillArr[x]);
+        }
         }
     },
 
@@ -165,30 +143,30 @@ var functionCollection = {
         //console.log("Server updated at hour: " + hour + "Min: " + min );
         if (hour == 8 || hour == 9 && min < 20){
                 this.current = "arr1";
-                this.content = this.act_arr_1, this.fillRest(this.act_arr_1);
+                this.content = this.act_arr_1, this.fillRest(this.act_arr_1, this.act_arr_2);
         }
         if (hour == 9 && min >=20 || hour == 10 && min < 30){
                 this.current = "arr2";
-                this.content = this.act_arr_2, this.fillRest(this.act_arr_2);
+                this.content = this.act_arr_2, this.fillRest(this.act_arr_2, this.act_arr_3);
         }
         if (hour == 10 && min >=30 || hour == 11 && min < 30){
                 this.current = "arr3";
-                this.content = this.act_arr_3, this.fillRest(this.act_arr_3);
+                this.content = this.act_arr_3, this.fillRest(this.act_arr_3, this.act_arr_4);
         }
         if (hour == 11 && min >=30 || hour == 12){
                 this.current = "arr4";
-                this.content = this.act_arr_4, this.fillRest(this.act_arr_4);
+                this.content = this.act_arr_4, this.fillRest(this.act_arr_4, this.act_arr_5);
         }
         if (hour == 13){
                 this.current = "arr5";
-                this.content = this.act_arr_5, this.fillRest(this.act_arr_5);
+                this.content = this.act_arr_5, this.fillRest(this.act_arr_5, this.act_arr_6);
         }
         if (hour == 14){
                 this.current = "arr6";
-                this.content = this.act_arr_6, this.fillRest(this.act_arr_6);
+                this.content = this.act_arr_6, this.fillRest(this.act_arr_6, this.act_arr_7);
         }
         if (hour == 15 && min > 15){
-                this.content = this.act_arr_7, this.fillRest(this.act_arr_7);
+                this.content = this.act_arr_7, this.fillRest(this.act_arr_7, this.act_next);
                 this.current = "arr7";
         }
         if (hour == 15 && min > 30){
