@@ -34,7 +34,7 @@ body {
   grid-area: top;
   width: 100%;
   height: 7vh;
-  background-color: #9d9d9c;
+  background-color: #efefef;
   -webkit-box-shadow: 2px 1px 3px 0 rgba(10, 10, 10, 0.6);
           box-shadow: 2px 1px 3px 0 rgba(10, 10, 10, 0.6);
   margin-bottom: 8px;
@@ -76,13 +76,18 @@ body {
 }
 
 .logo {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-row: 2;
-  -ms-grid-row-span: 2;
-  -ms-grid-column: 1;
-  grid-area: logo;
-  background-color: #fff;
+  width: 17.6%;
+  margin-left: 0.5%;
+  display: inline-block;
+}
+
+.clock {
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  padding: 0.3%;
+  font-size: 2.5vw;
+  margin-right: 2%;
 }
 
 .news {
