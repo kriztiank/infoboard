@@ -51,7 +51,6 @@ body {
 }
 
 .item-container {
-  margin-top: 2.5%;
   display: -ms-grid;
   display: grid;
   -ms-grid-row: 2;
@@ -80,18 +79,16 @@ body {
 
 .logo {
   width: 15%;
-  margin-left: 0.5%;
   display: inline-block;
-  margin-top: 0.2%;
+  margin: auto auto auto 0.5%;
 }
 
 .clock {
   display: inline-block;
   position: absolute;
-  right: 0;
-  padding: 0.3%;
+  right: 2%;
+  top: 1%;
   font-size: 2.5vw;
-  margin-right: 2%;
 }
 
 .news {
@@ -106,6 +103,11 @@ body {
   margin-right: 1%;
 }
 
+.news h2 {
+  margin: 0;
+  padding: 0;
+}
+
 svg {
   width: 100%;
 }
@@ -114,7 +116,7 @@ svg {
   display: block;
   width: 30.6vw;
   height: 35vh;
-  margin-right: 3%;
+  margin: 1.55vh 2vw auto auto;
 }
 
 .video-item {
@@ -151,6 +153,14 @@ svg {
   background-blend-mode: color-dodge;
 }
 
+.icon {
+  width: 12.5%;
+  display: inline-block;
+  padding: 0%;
+  margin-bottom: -1vh;
+  margin-left: 1vw;
+}
+
 .grid-item {
   width: 14vw;
   height: 27vh;
@@ -159,95 +169,36 @@ svg {
   border-radius: 6px;
   border: solid 0 black;
   background-color: #f0f0f0;
-  font-size: 1.1vw;
-  text-align: center;
+  font-size: 1.15vw;
+  font-weight: 500;
+  text-shadow: rgba(10, 10, 10, 0.4);
   color: black;
   margin: 4%;
-  display: -ms-grid;
-  display: grid;
-  /*     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr; */
-  background-image: url("../images/patternmain.png");
+  background-image: url("../images/patternreversed.png");
   background-size: contain;
-  background-position-x: -0.5vw;
+  background-position-x: right;
   background-repeat: no-repeat;
   background-blend-mode: color-burn;
   background-position-y: 10vh;
 }
 
+.grid-item div {
+  margin: auto;
+  height: auto;
+  width: auto;
+}
+
+.grid-item p {
+  display: inline-block;
+  margin-left: 3.5%;
+  text-align: center;
+}
+
 .grid-item h3 {
+  text-shadow: rgba(10, 10, 10, 0.4);
+  text-align: center;
   margin: 0;
-  padding-top: 4%;
+  padding-top: 3%;
+  padding-bottom: 3%;
 }
-
-#infograph {
-  margin-top: 2.5%;
-  height: 20vw;
-  width: 29vh;
-  grid-area: info;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 3fr;
-      grid-template-columns: 1fr 3fr;
-  -ms-grid-rows: 1fr 1fr 1fr 1fr 1fr;
-      grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-  gap: 0;
-}
-
-#infograph div {
-  text-align: left;
-  padding: 0;
-  margin: 0;
-}
-
-#infograph div h2 {
-  padding: 5;
-  margin: 0;
-}
-
-#mg {
-  color: #a43380;
-  font-size: 30px;
-}
-
-#dm {
-  color: #94b144;
-  font-size: 30px;
-}
-
-#gt {
-  color: #567ebe;
-  font-size: 30px;
-}
-
-#wu {
-  color: #dd5050;
-  font-size: 30px;
-}
-
-#other {
-  color: #F3E052;
-  font-size: 30px;
-}
-
-/* #dm{
-    background-image: url("../images/sorthvid/dm.jpg");
-    background-position: center;
-}
-#we{
-    background-image: url("../images/sorthvid/wu.jpg");
-    background-position: center;
-}
-#gr{
-    background-image: url("../images/sorthvid/gt.jpg");
-    background-position: center;
-}
-#mg{
-    background-image: url("../images/sorthvid/mg.jpg");
-    background-position: center;
-}
-#other{
-    background-image: url("../images/sorthvid/random.jpg");
-    background-position: center;
-} */
 /*# sourceMappingURL=main.css.map */

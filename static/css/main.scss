@@ -1,6 +1,6 @@
 // Colors
 
-//Bright red        -- WEBUDVIKLER
+//Bright red -- WEBUDVIKLER
 $red-1-light: #dd5050; 
 $red-1-dark: #d64643;
 
@@ -8,7 +8,7 @@ $red-1-dark: #d64643;
 $red-2-light: #ca4a50;
 $red-2-dark: #b2444c;
 
-//Purple light      -- MEDIEGRAFIKER
+//Purple light -- MEDIEGRAFIKER
 $purple-1-light: #a43380;
 $purple-1-dark: #90368b;
 
@@ -16,7 +16,7 @@ $purple-1-dark: #90368b;
 $purple-2-light:#923076;
 $purple-2-dark:#852c70;
 
-//Green light       -- DIGITAL MEDIE
+//Green light -- DIGITAL MEDIE
 $green-2-light:#94b144;
 $green-2-dark: #88a63e;
 
@@ -25,7 +25,7 @@ $green-1-light: #8b973c;
 $green-1-dark: #808635;
 
 
-//Blue light        -- GRAFISK TEKNIKER
+//Blue light -- GRAFISK TEKNIKER
 $blue-2-light:#567ebe;
 $blue-2-dark: #4d72a6;
 
@@ -48,7 +48,6 @@ body{
     margin:0;
     padding:0;
     box-sizing: border-box;
-   // background-color: #333;
 }
 
 .main-container{
@@ -86,7 +85,6 @@ body{
 }
 
 .item-container{
-    margin-top:2.5%;
     display: grid;
     grid-area: card;
     margin: 0 auto 0 6%;
@@ -102,32 +100,29 @@ body{
 }
 .logo{
     width: 15%;
-    margin-left: 0.5%;
     display: inline-block;
-    margin-top: 0.2%;
+    margin: auto auto auto 0.5%;
 }
 
 .clock{
     display: inline-block;
     position: absolute;
-    right: 0;
-    padding: 0.3%;
+    right: 2%;
+    top:1%;
     font-size: 2.5vw;
-    margin-right: 2%;
 }
 
 .news{
     display: grid;
-   // padding: 2%;
     grid-area: news;
-   // align-content: start;
-   // justify-content:start;
     background-color: #fff;
     width: 99%;
     height: 40vh;
     margin-right: 1%;
-   // padding: 2%;
-   // margin:0;
+    h2{
+        margin:0;
+        padding:0;
+    }
 }
 
 svg{
@@ -138,7 +133,7 @@ svg{
     display:block;
     width: 30.6vw;
     height: 35vh;
-    margin-right: 3%;
+    margin: 1.55vh 2vw auto auto;
 }
 
 .video-item{
@@ -148,9 +143,6 @@ svg{
 
 .news-item{
     font-size: 1.1vw;
-   // text-align: start center;
-   // padding: 2%;
-   // margin:0;
         
     h3{
         margin:0;
@@ -176,117 +168,54 @@ svg{
     background-position-x: right;
     background-repeat: no-repeat;
     background-blend-mode: color-dodge;
+}
 
+.icon{
+    width: 12.5%;
+    display: inline-block;
+    padding: 0%;
+    margin-bottom: -1vh;
+    margin-left: 1vw;
 }
 
 .grid-item{
-    //display: inline-block;
     width: 14vw;
     height: 27vh;
     box-shadow: 4px 2px 6px 0 rgba(10,10,10,0.5);
     border-radius: 6px;
     border: solid 0 black;
     background-color: rgb(240, 240, 240);
-    font-size: 1.1vw;
-    text-align: center;
+    font-size: 1.15vw;
+    font-weight: 500;
+    text-shadow: rgba(10, 10, 10, 0.4);
     color:black;
     margin: 4%;
 
-    //grid box
-    display:grid;
-/*     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr; */
-
-
     //graphic
-    background-image: url("../images/patternmain.png");
+    background-image: url("../images/patternreversed.png");
     background-size: contain;
-    background-position-x: -0.5vw;
+    background-position-x: right;
     background-repeat: no-repeat;
     background-blend-mode: color-burn;
     background-position-y: 10vh;
 
+    div{
+        margin:auto;
+        height:auto;
+        width:auto;
+    }
+
+    p{
+        display: inline-block;
+        margin-left:3.5%;
+        text-align: center;
+    }
+
     h3{
+        text-shadow: rgba(10, 10, 10, 0.4);
+        text-align: center;
         margin:0;
-        padding-top:4%;
-    }
-    
-}
-
-#infograph{
-    margin-top:2.5%;
-    height:20vw;
-    width: 29vh;
-    grid-area: info;
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-    gap: 0;
-
-
-div{
-   // border: solid black 1px;
-    text-align: left;
-    padding: 0;
-    margin: 0;
-
-h2{
-    padding: 5;
-    margin: 0;
-        }    
+        padding-top: 3%;
+        padding-bottom: 3%;
     }
 }
-
-//Dot size
-$dot-size: 30px;
-
-#mg{
-color: $purple-1-light;
-font-size: $dot-size;
-}
-
-#dm{
-color: $green-2-light;
-font-size: $dot-size;
-}
-
-#gt{
-color: $blue-2-light;
-font-size: $dot-size;
-}
-
-#wu{
-color: $red-1-light;
-font-size: $dot-size;
-}
-
-#other{
- color: $other-color;
- font-size: $dot-size;
-}
-
-
-
-
-
-// Background images
-/* #dm{
-    background-image: url("../images/sorthvid/dm.jpg");
-    background-position: center;
-}
-#we{
-    background-image: url("../images/sorthvid/wu.jpg");
-    background-position: center;
-}
-#gr{
-    background-image: url("../images/sorthvid/gt.jpg");
-    background-position: center;
-}
-#mg{
-    background-image: url("../images/sorthvid/mg.jpg");
-    background-position: center;
-}
-#other{
-    background-image: url("../images/sorthvid/random.jpg");
-    background-position: center;
-} */

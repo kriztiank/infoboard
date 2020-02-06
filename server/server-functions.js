@@ -8,16 +8,6 @@ var functionCollection = {
     classRooms: [],
     classes: [],
 
-    // Function to save data to different arrays and then begin update
-    saveData: function (data) {
-        this.subject = data.subject;
-        this.activity = data.activity;
-        this.news = data.news;
-        this.media = data.media;
-        this.getAllClassRooms(this.activity);
-        this.getAllClasses(this.activity);
-    },
-
     // Create arrays
     act_arr_1: [], // 8.15 - 9.20
     act_arr_2: [], // 9.20 - 10.30
@@ -28,27 +18,36 @@ var functionCollection = {
     act_arr_7: [], // 15.15 - 16.00
     act_next: [],
     
-
     //Set variables
     fillArr:[],
     fillArr2:[],
     default_arr:[],
     current:"",
 
+    // Function to save data to different arrays and then begin update
+    saveData: function (data) {
+        this.subject = data.subject;
+        this.activity = data.activity;
+        this.news = data.news;
+        this.media = data.media;
+        this.getAllClassRooms(this.activity);
+        this.getAllClasses(this.activity);
+    },
 
+    // Function to get all classes from the api and push them to the 'classes' array
     getAllClasses: function(el){
         this.classes.length =0;
         for (var x = 0; x < el.length; x++){
             if (!this.classes.includes(el[x].class)){
                 str = el[x].class;
                 substr = str.substring(0, 4);
-                console.log(substr)
                 this.classes.push(str);
             }
         }
     },
 
 
+    // Function to get all classrooms and push them to the 'classroom' array
     getAllClassRooms: function(el){
         for (var x = 0; x < el.length; x++){
             if (!this.classRooms.includes(el[x].classroom)){
@@ -59,19 +58,19 @@ var functionCollection = {
 
     // Function to fill out the rest of the grid, until there is 12 items
     fillRest: function(el, fill, fill2){
-
     a = el.length;
     t = 12;
     let target = t-a;
     this.fillArr = fill;
     this.fillArr2 = fill2;
-    //console.log(target)
     for (var x = 0; x < target; x++){
         if (x < this.fillArr.length){
             el.push(this.fillArr[x]);
             }
             else{
+                if (!this.fillArr2[x] == undefined){
                 el.push(this.fillArr2[x])
+                }
             }
         }
     },
@@ -92,7 +91,7 @@ var functionCollection = {
                 // kl 8
                 if (this.getHours(el[x].stamp) == 8) {
                     if (!this.act_arr_1.includes(el[x])){
-                        this.act_arr_1.push(el[x]);
+                    this.act_arr_1.push(el[x]);
                     }
                 }
                 // kl 9
@@ -141,13 +140,12 @@ var functionCollection = {
     }
 },
 
-// Function to determine what content to show based on currentime
-determineContent: function () {
+    // Function to determine what content to show based on currentime
+    determineContent: function () {
         let hour = this.getCurrentHour();
         let min = this.getMinutes();
 
-        //console.log("Server updated at hour: " + hour + "Min: " + min );
-        if (hour == 8 || hour == 9 && min < 20){
+        if (hour <= 8 || hour == 9 && min < 20){
                 this.content = this.act_arr_1, this.fillRest(this.act_arr_1, this.act_arr_2, this.act_arr_3);
         }
         if (hour == 9 && min >=20 || hour == 10 && min < 20){
@@ -165,7 +163,7 @@ determineContent: function () {
         if (hour == 14 || hour == 15 && min <= 15){
                 this.content = this.act_arr_6, this.fillRest(this.act_arr_6, this.act_next, this.default_arr);
         }
-        if (hour == 15 && min > 15){
+        if (hour == 15 && min > 15 || hour > 15){
                 this.content = this.act_next;
         }
     },

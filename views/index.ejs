@@ -3,42 +3,26 @@
     <title><% title %> </title>
     <link rel="stylesheet" href="../static/css/main.css">
     <link href="https://fonts.googleapis.com/css?family=Arimo&display=swap" rel="stylesheet">
-
   </head>
   <body>
- 
-    <div class="main-container">
-    <div class="topnav" id="topnav">
-      <img class="logo" src="../static/images/logo.png">
-      <div class="clock" id="clock">12:42</div>
-    </div>
-<!-- 
-    <section id="infograph">
-      <div id=mg>■</div>
-      <div><h2>Mediegrafiker</h2></div>
-
-      <div id=dm>■</div>
-      <div><h2>Digital media</h2></div>
-
-      <div id=gt>■</div>
-      <div><h2>Grafisk Teknikker</h2></div>
-
-      <div id=wu>■</div>
-      <div><h2>Webudvikler</h2></div>
-
-      <div id=other>■</div>
-      <div><h2>Andet</h2></div>
-
-    </section> -->
-
-    <div id="items" class="item-container"></div>    
-    <div class="player video" id="player"></div>
-    <div id="news" class="news"></div>
-    </div>
-    <p class="foot">Tech College Aalborg - Øster Utrup Vej - 9000 Aalborg</p>
-
+  <!-- Main container-->
+    <section class="main-container">
+      <!--Top navigation bar with logo and clock-->
+        <nav class="topnav" id="topnav">
+          <img class="logo" src="../static/images/logo.png">
+          <div class="clock" id="clock">12:42</div>
+        </nav>
+      <!-- Item section containing cards-->
+        <section id="items" class="item-container"></section>    
+      <!-- Youtube embedded player-->
+        <div class="player video" id="player"></div>
+      <!-- News section containing news-->
+        <section id="news" class="news"></section>
+  </section>
+  <!--Bottom footer containing location-->
+  <footer><p class="foot">Tech College Mediehuset - Øster Utrup Vej - 9000 Aalborg</p></footer>
   <script src="socket.io/socket.io.js"></script>
-  <script src="http://www.youtube.com/player_api"></script>
+  <script src="https://youtube.com/player_api"></script>
   <script src="../static/js/client.js"></script>
 </body>
 </html>
