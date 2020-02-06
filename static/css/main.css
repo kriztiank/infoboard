@@ -7,7 +7,6 @@ body {
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  background-color: #333;
 }
 
 .main-container {
@@ -16,9 +15,9 @@ body {
   display: grid;
   width: 100%;
   height: auto;
-  -ms-grid-columns: 1.5fr 1.5fr 1.25fr;
-      grid-template-columns: 1.5fr 1.5fr 1.25fr;
-      grid-template-areas: "card card video" "card card news";
+  -ms-grid-columns: 1fr 1.5fr 1.5fr 1.25fr;
+      grid-template-columns: 1fr 1.5fr 1.5fr 1.25fr;
+      grid-template-areas: "top top top top" "logo card card video" "logo card card news";
   background-color: #fff;
 }
 
@@ -26,12 +25,27 @@ body {
   color: white;
 }
 
-.item-container {
+.topnav {
   display: -ms-grid;
   display: grid;
   -ms-grid-row: 1;
-  -ms-grid-row-span: 2;
   -ms-grid-column: 1;
+  -ms-grid-column-span: 4;
+  grid-area: top;
+  width: 100%;
+  height: 7vh;
+  background-color: #9d9d9c;
+  -webkit-box-shadow: 2px 2px 3px 0 rgba(10, 10, 10, 0.5);
+          box-shadow: 2px 2px 3px 0 rgba(10, 10, 10, 0.5);
+  margin-bottom: 8px;
+}
+
+.item-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 2;
   -ms-grid-column-span: 2;
   grid-area: card;
   width: 60%;
@@ -49,8 +63,8 @@ body {
 .video {
   display: -ms-grid;
   display: grid;
-  -ms-grid-row: 1;
-  -ms-grid-column: 3;
+  -ms-grid-row: 2;
+  -ms-grid-column: 4;
   grid-area: video;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -61,23 +75,25 @@ body {
   background-color: #fff;
 }
 
+.logo {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  grid-area: logo;
+  background-color: #fff;
+}
+
 .news {
   display: -ms-grid;
   display: grid;
-  padding: 2%;
-  -ms-grid-row: 2;
-  -ms-grid-column: 3;
+  -ms-grid-row: 3;
+  -ms-grid-column: 4;
   grid-area: news;
-  -ms-flex-line-pack: start;
-      align-content: start;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: start;
   background-color: #fff;
-  width: 90%;
+  width: 100%;
   height: 40vh;
-  padding: 2%;
-  margin: 0;
 }
 
 svg {
@@ -97,9 +113,6 @@ svg {
 
 .news-item {
   font-size: 1.1vw;
-  text-align: start center;
-  padding: 2%;
-  margin: 0;
 }
 
 .news-item h3 {

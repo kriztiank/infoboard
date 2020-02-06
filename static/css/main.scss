@@ -44,7 +44,7 @@ body{
     margin:0;
     padding:0;
     box-sizing: border-box;
-    background-color: #333;
+   // background-color: #333;
 }
 
 .main-container{
@@ -52,16 +52,26 @@ body{
     display: grid;
     width: 100%;
     height: auto;
-    grid-template-columns: 1.5fr 1.5fr 1.25fr;
+    grid-template-columns: 1fr 1.5fr 1.5fr 1.25fr;
     grid-template-areas:
-    "card card video"
-    "card card news";
+    "top top top top"
+    "logo card card video"
+    "logo card card news";
     background-color: #fff;
-
 }
 
 .headline{
     color:white;
+}
+
+.topnav{
+    display: grid;
+    grid-area: top;
+    width: 100%;
+    height: 7vh;
+    background-color: #9d9d9c;
+    box-shadow: 2px 2px 3px 0 rgba(10, 10, 10, 0.5);
+    margin-bottom: 8px;
 }
 
 .item-container{
@@ -83,22 +93,29 @@ body{
     background-color: #fff;
 }
 
+.logo{
+    display: grid;
+    grid-area: logo;
+   // align-items: center;
+   // justify-content: center;
+    background-color: #fff;
+}
 
 .news{
     display: grid;
-    padding: 2%;
+   // padding: 2%;
     grid-area: news;
-    align-content: start;
-    justify-content:start;
+   // align-content: start;
+   // justify-content:start;
     background-color: #fff;
-    width: 90%;
+    width: 100%;
     height: 40vh;
-    padding: 2%;
-    margin:0;
+   // padding: 2%;
+   // margin:0;
 }
 
 svg{
-    width:100%
+    width: 100%;
 }
 
 #player{
@@ -114,9 +131,9 @@ svg{
 
 .news-item{
     font-size: 1.1vw;
-    text-align: start center;
-    padding: 2%;
-    margin:0;
+   // text-align: start center;
+   // padding: 2%;
+   // margin:0;
         
     h3{
         margin:0;
