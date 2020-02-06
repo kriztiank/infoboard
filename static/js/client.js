@@ -1,6 +1,6 @@
 // Initialize socket io and start connection to server
 let socket = io('http://localhost:3000');
-let classContainer = document.getElementById('map');
+let classContainer = document.getElementById('items');
 let rooms = document.getElementsByClassName('st1');
 
 // Initialize all needed variables
@@ -28,11 +28,12 @@ socket.on('update', function(content, news) {
         let el = document.createElement('div');
         let elH = document.createElement('div');
         el.classList.add('grid-item');
+        el.setAttribute('id', getId(con.class));
         elH.classList.add('top-grid-item');
         elH.style.backgroundColor = getColor(con.class);
-
+        elH.innerHTML = `<h3> ${con.name}</h3> `
         el.append(elH);
-        el.innerHTML += `${con.id} <br> ${con.name} <br>${con.classroom} <br> ${con.class}<br> ${convertTime(con.stamp)}`
+        el.innerHTML += `<br>${convertTime(con.stamp)}<br>Hold: ${con.class} Lokale: ${con.classroom}`
         classContainer.append(el);
     }); 
 
@@ -41,7 +42,7 @@ socket.on('update', function(content, news) {
     news.forEach(function(thenews){
         let el = document.createElement('div');
         el.setAttribute('id',`news${thenews.id}`);
-        el.innerHTML = `<div class="news-item"><h2>${thenews.title}</h2><p>${thenews.content}</p><p>${thenews.date_start}</p></div>`
+        el.innerHTML = `<div class="news-item"><h2>${thenews.title}</h2><p>${cutText(thenews.content)}</p></p></div>`
         newsArray.push(el);
     })
 
@@ -78,6 +79,28 @@ socket.on('videoupdate', function(media) {
     })
 })
 
+
+function getId(el){
+
+    str = el;
+    if (!(str.includes('dm') || str.includes('gr') || str.includes('mg') || str.includes('we'))){
+        str = "other";
+    }
+    return str.substring(1,3);
+
+}
+
+function cutText(text){
+    if (text.length > 351){
+        ctxt = text.substr(0, 350);
+        ctxt += "...";
+        return ctxt;
+    }
+    else{
+        return text;
+    }
+}
+
 function resetColors(el){
         for(var x = 0; x < el.length; x++) {
             el[x].style.fill = '#ffffff'; 
@@ -87,30 +110,29 @@ function resetColors(el){
 function getColor(c){
 
     let str = c;
-    
 
     if (str.toLowerCase().includes('dm')){
-        color =  '#dd5050';
-        return color;
-    }
-
-    if (str.toLowerCase().includes('gr')){
-        color =  '#ca4a50';
-        return color;
-    }
-
-    if (str.toLowerCase().includes('mg')){
-        color =  '#4b6d9e';
-        return color;
-    }
-
-    if (str.toLowerCase().includes('we')){
         color =  '#94b144';
         return color;
     }
 
+    if (str.toLowerCase().includes('gr')){
+        color =  '#567ebe';
+        return color;
+    }
+
+    if (str.toLowerCase().includes('mg')){
+        color =  '#a43380';
+        return color;
+    }
+
+    if (str.toLowerCase().includes('we')){
+        color =  '#dd5050';
+        return color;
+    }
+
     else{
-        color = '#90368b';
+        color = '#F3E052';
         return color;
     }
 }
@@ -135,8 +157,8 @@ var player;
 setTimeout(() => {
     // create youtube player
         player = new YT.Player('player', {
-          width: '22vw',
-          height: '31vh',
+          width: '29vw',
+          height: '35vh',
           videoId: videoArray[ytSwitcher],
           events: {
             onReady: onPlayerReady,

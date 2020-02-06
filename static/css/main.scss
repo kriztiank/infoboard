@@ -36,7 +36,9 @@ $blue-1-dark: #4b6d9e;
 $default-room: rgb(80, 80, 80);
 
 
-
+*{
+    font-family: 'Arimo', sans-serif;
+}
 
 body{
     margin:0;
@@ -48,12 +50,12 @@ body{
 .main-container{
     margin:auto auto;
     display: grid;
-    width: 80%;
-    height: 80%;
+    width: 100%;
+    height: auto;
     grid-template-columns: 1.5fr 1.5fr 1.25fr;
     grid-template-areas:
-    "map map video"
-    "map map news";
+    "card card video"
+    "card card news";
     background-color: #fff;
 
 }
@@ -62,11 +64,15 @@ body{
     color:white;
 }
 
-.map{
-    //display: grid;
-    grid-area: map;
+.item-container{
+    display: grid;
+    grid-area: card;
+    width: 60%;
+    margin: 0 auto 0 auto;
     background-color:rgb(251,251,251);
     align-items:center;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
 }
 
 .video{
@@ -82,9 +88,13 @@ body{
     display: grid;
     padding: 2%;
     grid-area: news;
-    align-items: center;
-    justify-content: center;
+    align-content: start;
+    justify-content:start;
     background-color: #fff;
+    width: 90%;
+    height: 40vh;
+    padding: 2%;
+    margin:0;
 }
 
 svg{
@@ -92,21 +102,26 @@ svg{
 }
 
 #player{
-    border: none;
-    border-width: 0;
     display:block;
-    width: 22vw;
-    height: 25vh;
-    margin: 5% auto 5% auto;
+    width: 29vw;
+    height: 35vh;
 }
 
 .video-item{
     width: 100%;
     height: 100%;
 }
+
 .news-item{
     font-size: 1.1vw;
     text-align: start center;
+    padding: 2%;
+    margin:0;
+        
+    h3{
+        margin:0;
+        padding:0;
+    }
 }
 
 #class-container{
@@ -131,9 +146,37 @@ svg{
     box-shadow: 4px 2px 6px 0 rgba(10,10,10,0.5);
     border-radius: 10px;
     border: solid 0 black;
-    background-color: black;
+    background-color: rgb(240, 240, 240);
     font-size: 1.1vw;
     text-align: center;
-    color:white;
+    color:black;
     margin: 1%;
+
+    h3{
+        margin:0;
+        padding-top:4%;
+    }
+    
 }
+
+// Background images
+/* #dm{
+    background-image: url("../images/sorthvid/dm.jpg");
+    background-position: center;
+}
+#we{
+    background-image: url("../images/sorthvid/wu.jpg");
+    background-position: center;
+}
+#gr{
+    background-image: url("../images/sorthvid/gt.jpg");
+    background-position: center;
+}
+#mg{
+    background-image: url("../images/sorthvid/mg.jpg");
+    background-position: center;
+}
+#other{
+    background-image: url("../images/sorthvid/random.jpg");
+    background-position: center;
+} */

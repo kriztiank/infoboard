@@ -53,7 +53,6 @@ const server = http.listen(3000, function () {
 // On establishing connection
 io.sockets.on('connection', function (socket) {
 
-
   console.log(socket.id);
 
   // start and update interval that emits the updated content every 500ms
