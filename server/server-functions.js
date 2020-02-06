@@ -150,10 +150,10 @@ determineContent: function () {
         if (hour == 8 || hour == 9 && min < 20){
                 this.content = this.act_arr_1, this.fillRest(this.act_arr_1, this.act_arr_2, this.act_arr_3);
         }
-        if (hour == 9 && min >=20 || hour == 10 && min < 30){
+        if (hour == 9 && min >=20 || hour == 10 && min < 20){
                 this.content = this.act_arr_2, this.fillRest(this.act_arr_2, this.act_arr_3, this.act_arr_4);
         }
-        if (hour == 10 && min >=30 || hour == 11 && min < 30){
+        if (hour == 10 && min >=20 || hour == 11 && min < 30){
                 this.content = this.act_arr_3, this.fillRest(this.act_arr_3, this.act_arr_4, this.act_arr_5);
         }
         if (hour == 11 && min >=30 || hour == 12){

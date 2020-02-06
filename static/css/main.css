@@ -3,6 +3,7 @@
 }
 
 body {
+  background-color: #f0f0f0;
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
@@ -23,6 +24,11 @@ body {
       -ms-flex-align: center;
           align-items: center;
   justify-items: center;
+}
+
+.foot {
+  text-align: center;
+  font-size: 0.6vw;
 }
 
 .headline {
@@ -54,7 +60,6 @@ body {
   -ms-grid-column-span: 3;
   grid-area: card;
   margin: 0 auto 0 6%;
-  background-color: #fbfbfb;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -136,12 +141,17 @@ svg {
   height: 6vh;
   position: relative;
   top: 0;
+  color: white;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
+  background-image: url("../images/pattern.png");
+  background-size: contain;
+  background-position-x: right;
+  background-repeat: no-repeat;
+  background-blend-mode: color-dodge;
 }
 
 .grid-item {
-  display: inline-block;
   width: 14vw;
   height: 27vh;
   -webkit-box-shadow: 4px 2px 6px 0 rgba(10, 10, 10, 0.5);
@@ -153,6 +163,16 @@ svg {
   text-align: center;
   color: black;
   margin: 4%;
+  display: -ms-grid;
+  display: grid;
+  /*     grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr; */
+  background-image: url("../images/patternmain.png");
+  background-size: contain;
+  background-position-x: -0.5vw;
+  background-repeat: no-repeat;
+  background-blend-mode: color-burn;
+  background-position-y: 10vh;
 }
 
 .grid-item h3 {

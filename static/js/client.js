@@ -30,9 +30,11 @@ socket.on('update', function(content, news) {
        // el.setAttribute('id', getId(con.class));
         elH.classList.add('top-grid-item');
         elH.style.backgroundColor = getColor(con.class);
-        elH.innerHTML = `<h3> ${con.name}</h3> `
+        let firstLetter = con.name.substring(0, 1).toUpperCase();
+        let remainLetter = con.name.substring(1,100);
+        elH.innerHTML = `<h3> ${firstLetter+remainLetter}</h3> `
         el.append(elH);
-        el.innerHTML += `<br>Kl: ${convertTime(con.stamp).substring(0,5)}<br><br>Hold: ${con.class}<br><br> Lokale: ${con.classroom}`
+        el.innerHTML += `<p>Kl: ${convertTime(con.stamp)}</p><p>Hold: ${con.class}</p><p> Lokale: ${con.classroom}</p>`
         classContainer.append(el);
     }); 
 
@@ -151,9 +153,10 @@ function convertTime(time, minus = 0){
     var hours = date.getHours() - minus;
     var minutes = "0" + date.getMinutes();
     var seconds = "0" + date.getSeconds();
-    var formatted = hours + ":" + minutes.substr(-2) + ":" + seconds.substr(-2); 
+    var formatted = hours + ":" + minutes.substr(-2); 
     return formatted;
 }
+
 
 //Youtube API player From this example: 
 //https://stackoverflow.com/questions/7853904/how-to-detect-when-a-youtube-video-finishes-playing
