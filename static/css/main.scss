@@ -88,16 +88,11 @@ body{
 .video{
     display: grid;
     grid-area: video;
-    align-items: center;
-    justify-content: center;
-    background-color: #fff;
 }
-
 .logo{
     width: 17.6%;
     margin-left: 0.5%;
     display:inline-block;
-
 }
 
 .clock{
