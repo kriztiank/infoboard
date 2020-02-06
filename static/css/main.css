@@ -120,8 +120,7 @@ svg {
 
 #infograph {
   height: 500px;
-  width: 200px;
-  background-color: #ff00dd;
+  width: 300px;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 3fr;
@@ -132,6 +131,39 @@ svg {
 }
 
 #infograph div {
-  background-color: green;
+  border: solid black 1px;
+  text-align: left;
+  padding: 0;
+  margin: 0;
+}
+
+#infograph div h2 {
+  padding: 5;
+  margin: 0;
+}
+
+#mg {
+  color: #a43380;
+  font-size: 30px;
+}
+
+#dm {
+  color: #94b144;
+  font-size: 30px;
+}
+
+#gt {
+  color: #6c7480;
+  font-size: 30px;
+}
+
+#wu {
+  color: #dd5050;
+  font-size: 30px;
+}
+
+#other {
+  color: #F3E052;
+  font-size: 30px;
 }
 /*# sourceMappingURL=main.css.map */

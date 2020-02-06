@@ -110,7 +110,7 @@ function getColor(c){
     }
 
     else{
-        color = '#90368b';
+        color = '#F3E052';
         return color;
     }
 }

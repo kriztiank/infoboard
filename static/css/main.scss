@@ -26,12 +26,15 @@ $green-1-dark: #808635;
 
 
 //Blue light        -- GRAFISK TEKNIKER
-$blue-2-light:#567ebe;
+$blue-2-light:#6c7480;
 $blue-2-dark: #4d72a6;
 
 //Blue dark
 $blue-1-light: #5479b1;
 $blue-1-dark: #4b6d9e;
+
+//Alt color
+$other-color: #F3E052;
 
 $default-room: rgb(80, 80, 80);
 
@@ -140,21 +143,53 @@ svg{
 
 #infograph{
     height:500px;
-    width: 200px;
-
-    background-color: rgb(255, 0, 221);
+    width: 300px;
 
     display: grid;
     grid-template-columns: 1fr 3fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     gap: 10px;
 
-div{
-    background-color: green;
 
 div{
 
+    border: solid black 1px;
+    text-align: left;
+    padding: 0;
+    margin: 0;
+
+h2{
+    padding: 5;
+    margin: 0;
+}    
 }
 }
+
+//Dot size
+$dot-size: 30px;
+
+#mg{
+color: $purple-1-light;
+font-size: $dot-size;
+}
+
+#dm{
+color: $green-2-light;
+font-size: $dot-size;
+}
+
+#gt{
+color: $blue-2-light;
+font-size: $dot-size;
+}
+
+#wu{
+color: $red-1-light;
+font-size: $dot-size;
+}
+
+#other{
+ color: $other-color;
+ font-size: $dot-size;
 }
 
