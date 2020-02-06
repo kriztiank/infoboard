@@ -10,12 +10,11 @@ let videoArray = [];
 let increment = 0;
 let switcher = 0;
 var ytSwitcher = 0;
-
+let clock = document.getElementById('clock');
 
 
 // When client receives an 'update' from the server
 socket.on('update', function(content, news) {
-    
     // Activity
     classContainer.innerHTML = "";
     content.forEach(function(con) {
@@ -33,7 +32,7 @@ socket.on('update', function(content, news) {
         elH.style.backgroundColor = getColor(con.class);
         elH.innerHTML = `<h3> ${con.name}</h3> `
         el.append(elH);
-        el.innerHTML += `<br>${convertTime(con.stamp)}<br><br>Hold: ${con.class}<br><br> Lokale: ${con.classroom}`
+        el.innerHTML += `<br>Kl: ${convertTime(con.stamp).substring(0,5)}<br><br>Hold: ${con.class}<br><br> Lokale: ${con.classroom}`
         classContainer.append(el);
     }); 
 
@@ -61,9 +60,9 @@ socket.on('update', function(content, news) {
     newsContainer.innerHTML = newsArray[switcher].innerHTML;
 })
 
-
 setInterval(() => {
     increment +=1
+    getClock();
 }, 1000);
 
 socket.on('videoupdate', function(media) {
@@ -79,6 +78,13 @@ socket.on('videoupdate', function(media) {
     })
 })
 
+function getClock(){
+    var date = new Date;
+    var hours = date.getHours();
+    var minutes = "0" + date.getMinutes();
+    var seconds = "0" + date.getSeconds();
+    clock.textContent = hours + ":" + minutes.substr(-2) + ":" + seconds.substr(-2); 
+}
 
 function getId(el){
 
