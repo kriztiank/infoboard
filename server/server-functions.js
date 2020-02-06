@@ -65,7 +65,7 @@ var functionCollection = {
     let target = t-a;
     this.fillArr = fill;
     this.fillArr2 = fill2;
-    console.log(target)
+    //console.log(target)
     for (var x = 0; x < target; x++){
         if (x < this.fillArr.length){
             el.push(this.fillArr[x]);

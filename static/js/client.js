@@ -28,12 +28,12 @@ socket.on('update', function(content, news) {
         let el = document.createElement('div');
         let elH = document.createElement('div');
         el.classList.add('grid-item');
-        el.setAttribute('id', getId(con.class));
+       // el.setAttribute('id', getId(con.class));
         elH.classList.add('top-grid-item');
         elH.style.backgroundColor = getColor(con.class);
         elH.innerHTML = `<h3> ${con.name}</h3> `
         el.append(elH);
-        el.innerHTML += `<br>${convertTime(con.stamp)}<br>Hold: ${con.class} Lokale: ${con.classroom}`
+        el.innerHTML += `<br>${convertTime(con.stamp)}<br><br>Hold: ${con.class}<br><br> Lokale: ${con.classroom}`
         classContainer.append(el);
     }); 
 
