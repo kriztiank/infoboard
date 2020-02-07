@@ -46,7 +46,6 @@ socket.on('update', function (content, news) {
         newsArray.push(el);
     })
 
-
     // Every 10 seconds add 1 to int increment
     // if increment is 10, then add one to switcher
     // if switcher is higher then or equal to newsArrays.length then reset it
@@ -82,10 +81,10 @@ socket.on('videoupdate', function (media) {
 // Function to return a the time in the format "00:00:00". 
 function getClock() {
     var date = new Date;
-    var hours = date.getHours();
+    var hours = "0" + date.getHours();
     var minutes = "0" + date.getMinutes();
     var seconds = "0" + date.getSeconds();
-    clock.textContent = hours + ":" + minutes.substr(-2) + ":" + seconds.substr(-2);
+    clock.textContent = hours.substr(-2) + ":" + minutes.substr(-2) + ":" + seconds.substr(-2);
 }
 
 // Function to cut text if it is above 350 characters, in order to avoid text overflow
@@ -109,17 +108,14 @@ function getColor(c) {
         color = '#94b144';
         return color;
     }
-
     if (str.toLowerCase().includes('gr')) {
         color = '#567ebe';
         return color;
     }
-
     if (str.toLowerCase().includes('mg')) {
         color = '#a43380';
         return color;
     }
-
     if (str.toLowerCase().includes('we')) {
         color = '#dd5050';
         return color;
